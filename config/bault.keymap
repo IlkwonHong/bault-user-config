@@ -32,6 +32,12 @@
             bindings = <&kp TAB>;
             layers = <0>;                   // base 레이어에서만 동작 (원하면 삭제)
         };
+        combo_ws_esc {
+            timeout-ms = <30>;              // 30~50ms 선호, 필요시 조절
+            key-positions = <1 2>;          // Q=0, W=1
+            bindings = <&kp ESC>;
+            layers = <0>;                   // base 레이어에서만 동작 (원하면 삭제)
+        };
 
         // A + S -> Caps Lock
         combo_as_caps {
@@ -51,7 +57,7 @@
             bindings = <
                 &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BACKSPACE
                 &hm LGUI A  &hm LEFT_ALT S  &hm LEFT_CONTROL D  &hm LEFT_SHIFT F  &kp G      &kp H      &hm RIGHT_SHIFT J  &hm RIGHT_CONTROL K  &hm LEFT_ALT L  &hm RIGHT_GUI ENTER
-                &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA      &kp PERIOD      &kp SLASH
+                &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA      &kp PERIOD      &kp RIGHT_SHIFT
                 &kp N0      &mo 3      &kp ENTER      &lt 1 SPACE      &lt 1 SPACE      &mo 1      &mo 2      &kp N0
             >;
         };
@@ -59,10 +65,10 @@
 
         layer_1 {
             bindings = <
-                &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &kp N6  &kp N7    &kp N8    &kp N9     &kp N0     &studio_unlock
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans    &kp UP    &kp MINUS  &kp EQUAL
-                &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans
-                &kp N0   &trans  &trans  &trans  &trans  &trans    &trans &kp N0
+                &kp N7  &kp N7  &kp N9  &kp N0  &trans  &trans  &HOME    &END    &LEFT_BRACKET     &RIGHT_BRACKET     &studio_unlock
+                &kp N4  &kp N5  &kp N6  &kp MINUS  &trans  &kp LEFT  &kp DOWN    &kp UP    &kp RIGHT  &kp SEMICOLON
+                &kp N1  &kp N2  &kp N3  &kp EQUAL  &trans  &trans  &trans  &trans  &kp SLASH  &trans
+                &trans   &trans  &trans  &trans  &trans  &trans    &trans &kp N0
             >;
         };
 
