@@ -2,23 +2,48 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/behaviors.h>
 
 / {
-
     behaviors {
-        hm: homerow_mods {
+        // 왼손 홈로우 모드 (S/D/F 같은 왼손 글자에 사용)
+        hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
-            display-name = "Homerow Mods";
+            display-name = "Homerow Mods Left";
+            #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
+            // Permissive Hold에 해당하는 균형 잡힌 결정을 사용
+            flavor = "balanced";                 // ≈ QMK PERMISSIVE_HOLD
+            tapping-term-ms = <250>;             // 취향에 맞게 200~300ms 사이 조절
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;       // 빠른 타이핑 시 자동으로 tap로 즉시 해석
+
+            // 반대손 키가 눌릴 때만 hold로 인정 (포지셔널 hold-tap)
+            hold-trigger-key-positions = <
+                /* TODO: 여기에 '오른손' 키들의 인덱스 나열 */
+            >;
+            hold-trigger-on-release;             // 같은 손 모디파이어 동시홀드 용이
+        };
+
+        // (필요하면) 오른손 홈로우 모드
+        hmr: home_row_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "Homerow Mods Right";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <180>;
-            require-prior-idle-ms = <0>;
-            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;
+
+            hold-trigger-key-positions = <
+                /* TODO: 여기에 '왼손' 키들의 인덱스 나열 */
+            >;
+            hold-trigger-on-release;
         };
     };
-
 
     keymap {
         compatible = "zmk,keymap";
@@ -26,12 +51,16 @@
         base {
             bindings = <
                 &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O      &kp P      &kp LEFT_BRACKET
-                &hm LEFT_CONTROL A  &hm LEFT_ALT S  &hm LGUI D  &hm LEFT_SHIFT F  &kp G      &kp H      &hm RIGHT_SHIFT J  &hm RIGHT_GUI K  &hm LEFT_ALT L  &hm RCTRL SEMICOLON
-                &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA      &kp PERIOD      &kp SLASH
-                &kp N0      &mo 3      &kp ENTER      &kp SPACE      &kp BACKSPACE      &mo 1      &mo 2      &kp N0
+                &kp A
+                /* S, D, F 를 홈로우 모드로: hold 시 Alt/Ctrl/Shift, tap 시 s/d/f */
+                &hml LALT S   &hml LCTRL D   &hml LSHIFT F
+                &kp G      &kp H
+                /* 오른손도 홈로우 모드 쓰려면 &hmr 로 교체 (예: J/K/L …) */
+                &hmr RSHIFT J  &hmr RGUI K   &hmr LALT L   &hmr RCTRL SEMICOLON
+                &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA  &kp PERIOD  &kp SLASH
+                &kp N0     &mo 3      &kp ENTER  &kp SPACE  &kp BACKSPACE  &mo 1  &mo 2  &kp N0
             >;
         };
-
 
         layer_1 {
             bindings = <
@@ -41,7 +70,6 @@
                 &kp N0   &trans  &trans  &trans  &trans  &trans    &trans &kp N0
             >;
         };
-
 
         connectivity {
             bindings = <
