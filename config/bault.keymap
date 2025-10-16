@@ -54,6 +54,12 @@
             bindings = <&kp CAPSLOCK>;
             layers = <0>;
         };
+        combo_fg_unlock {
+            timeout-ms = <35>;
+            key-positions = <14 15>;    // F=14, G=15 (실제 행렬 인덱스 맞춰야 함)
+            bindings = <&to 0>;         // base layer로 전환
+            layers = <4>;               // lock layer에서만 동작
+        };
     };
     /* 🔹 콤보 정의 */
 
@@ -96,6 +102,14 @@
                 &out OUT_TOG   &kp F5  &kp F6  &kp F11  &trans  &trans        &mmv MOVE_LEFT        &mmv MOVE_DOWN        &mmv MOVE_RIGHT        &kp SINGLE_QUOTE
                 &out OUT_BLE  &out OUT_USB  &out OUT_USB   &kp F12  &trans  &bt BT_CLR    &out OUT_BLE  &out OUT_USB  &out OUT_TOG  &trans
                 &kp N0   &trans  &trans  &trans  &trans        &trans        &trans &soft_off
+            >;
+        };
+        lock_layer {
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
