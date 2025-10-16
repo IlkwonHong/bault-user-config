@@ -1,12 +1,11 @@
 / {
-    /* 소프트오프(절전) 중에 '아무 키'로 깨우기 */
+    /* 소프트오프 중 '아무 키'로 깨우기 */
     soft_off_wakers {
         compatible = "zmk,soft-off-wakeup-sources";
-        wakeup-sources = <&kscan>;
+        wakeup-sources = <&kscan0>;
     };
 };
 
-/* 키스캔 디바이스가 웨이크업 소스임을 표시 */
-&kscan {
+&kscan0 {
     wakeup-source;
 };
