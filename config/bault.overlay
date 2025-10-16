@@ -1,0 +1,22 @@
+/ {
+    // 1) 웨이크 전용 GPIO 키(예: F 키 스위치 연결된 핀)
+    keys {
+        compatible = "gpio-keys";
+        wake_f: wake_f {
+            gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // 보드 핀 번호에 맞게 수정
+        };
+    }
+
+    // 2) 그 키만 읽는 작은 kscan
+    f_wake_scan: f_wake_scan {
+        compatible = "zmk,kscan-gpio-direct";
+        input-keys = <&wake_f>;
+        wakeup-source;                 // 웨이크 가능
+    }
+
+    // 3) 소프트오프 중 활성화할 웨이크 소스로 등록
+    soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&f_wake_scan>;
+    }
+};
