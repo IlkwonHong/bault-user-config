@@ -64,14 +64,14 @@
                 &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BACKSPACE
                 &hm LGUI A  &hm LEFT_ALT S  &hm LEFT_CONTROL D  &hm LEFT_SHIFT F  &kp G      &kp H      &hm RIGHT_SHIFT J  &hm RIGHT_CONTROL K  &hm LEFT_ALT L  &hm RIGHT_GUI ENTER
                 &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA      &kp PERIOD      &kp RIGHT_SHIFT
-                &kp N0      &mo 3      &kp ENTER      &lt 2 SPACE      &lt 1 SPACE      &mo 1      &mo 2      &kp N0
+                &mo 3      &mo 3      &kp ENTER      &lt 2 SPACE      &lt 1 SPACE      &mo 1      &mo 2      &kp N0
             >;
         };
 
 
         layer_1 {
             bindings = <
-                &kp N7  &kp N7  &kp N9  &kp N0  &trans  &trans  &kp HOME    &kp END    &kp LEFT_BRACKET     &kp RIGHT_BRACKET     &studio_unlock
+                &kp N7  &kp N8  &kp N9  &kp N0  &trans  &trans  &kp HOME    &kp END    &kp LEFT_BRACKET     &kp RIGHT_BRACKET     &kp BACKSLASH
                 &kp N4  &hm LEFT_ALT N5  &hm LEFT_CONTROL N6  &hm LEFT_SHIFT MINUS  &trans  &kp LEFT  &hm RIGHT_SHIFT DOWN    &hm RIGHT_CONTROL UP    &hm RIGHT_ALT RIGHT  &kp SEMICOLON
                 &kp N1  &kp N2  &kp N3  &kp EQUAL  &trans  &trans  &trans  &trans  &kp SLASH  &trans
                 &trans   &trans  &trans  &trans  &trans  &trans    &trans &kp N0
@@ -79,12 +79,21 @@
         };
 
 
-        connectivity {
+        layer_2 {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &mmv MOVE_UP  &bt BT_SEL 3  &bt BT_SEL 4  &kp TILDE
-                &trans  &trans  &trans  &trans  &trans  &trans        &mmv MOVE_LEFT        &mmv MOVE_DOWN        &mmv MOVE_RIGHT        &kp SINGLE_QUOTE
-                &trans  &trans  &trans  &trans  &trans  &bt BT_CLR    &out OUT_BLE  &out OUT_USB  &out OUT_TOG  &trans
+                &kp F7  &kp F8  &kp F9  &kp F10  &trans  &bt BT_SEL 0  &mkp MB1  &mmv MOVE_UP  &mkp MB2  &bt BT_SEL 4  &kp GRAVE
+                &kp F4  &kp F5  &kp F6  &kp F11  &trans  &trans        &mmv MOVE_LEFT        &mmv MOVE_DOWN        &mmv MOVE_RIGHT        &kp SINGLE_QUOTE
+                &kp F1  &kp F2  &kp F3  &kp F12  &trans  &bt BT_CLR    &out OUT_BLE  &out OUT_USB  &out OUT_TOG  &trans
                 &kp N0   &trans  &trans  &trans  &trans        &trans        &trans &kp N0
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp F10  &trans  &bt BT_SEL 0  &mkp MB1  &mmv MOVE_UP  &mkp MB2  &bt BT_SEL 4  &kp GRAVE
+                &out OUT_TOG   &kp F5  &kp F6  &kp F11  &trans  &trans        &mmv MOVE_LEFT        &mmv MOVE_DOWN        &mmv MOVE_RIGHT        &kp SINGLE_QUOTE
+                &bt OUT_BLE  &out OUT_USB  &out OUT_USB   &kp F12  &trans  &bt BT_CLR    &out OUT_BLE  &out OUT_USB  &out OUT_TOG  &trans
+                &kp N0   &trans  &trans  &trans  &trans        &trans        &trans &bt BT_CLR
             >;
         };
     };
