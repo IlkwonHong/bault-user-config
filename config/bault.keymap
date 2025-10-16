@@ -92,7 +92,7 @@
             bindings = <
                 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp F10  &trans  &bt BT_SEL 0  &mkp MB1  &mmv MOVE_UP  &mkp MB2  &bt BT_SEL 4  &kp GRAVE
                 &out OUT_TOG   &kp F5  &kp F6  &kp F11  &trans  &trans        &mmv MOVE_LEFT        &mmv MOVE_DOWN        &mmv MOVE_RIGHT        &kp SINGLE_QUOTE
-                &bt OUT_BLE  &out OUT_USB  &out OUT_USB   &kp F12  &trans  &bt BT_CLR    &out OUT_BLE  &out OUT_USB  &out OUT_TOG  &trans
+                &out OUT_BLE  &out OUT_USB  &out OUT_USB   &kp F12  &trans  &bt BT_CLR    &out OUT_BLE  &out OUT_USB  &out OUT_TOG  &trans
                 &kp N0   &trans  &trans  &trans  &trans        &trans        &trans &bt BT_CLR
             >;
         };
