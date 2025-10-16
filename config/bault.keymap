@@ -65,7 +65,7 @@
 
         layer_1 {
             bindings = <
-                &kp N7  &kp N7  &kp N9  &kp N0  &trans  &trans  &HOME    &END    &LEFT_BRACKET     &RIGHT_BRACKET     &studio_unlock
+                &kp N7  &kp N7  &kp N9  &kp N0  &trans  &trans  &kp HOME    &kp END    &LEFT_BRACKET     &RIGHT_BRACKET     &studio_unlock
                 &kp N4  &kp N5  &kp N6  &kp MINUS  &trans  &kp LEFT  &kp DOWN    &kp UP    &kp RIGHT  &kp SEMICOLON
                 &kp N1  &kp N2  &kp N3  &kp EQUAL  &trans  &trans  &trans  &trans  &kp SLASH  &trans
                 &trans   &trans  &trans  &trans  &trans  &trans    &trans &kp N0
