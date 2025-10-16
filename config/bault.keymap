@@ -34,12 +34,14 @@
         // Q + W -> Tab (베이스 레이어에서만)
         combo_qw_tab {
             timeout-ms = <30>;              // 30~50ms 선호, 필요시 조절
+            require-prior-idle-ms = <120>; 
             key-positions = <0 1>;          // Q=0, W=1
             bindings = <&kp TAB>;
             layers = <0>;                   // base 레이어에서만 동작 (원하면 삭제)
         };
         combo_ws_esc {
             timeout-ms = <30>;              // 30~50ms 선호, 필요시 조절
+            require-prior-idle-ms = <120>; 
             key-positions = <1 2>;          // Q=0, W=1
             bindings = <&kp ESC>;
             layers = <0>;                   // base 레이어에서만 동작 (원하면 삭제)
@@ -90,10 +92,10 @@
 
         layer_3 {
             bindings = <
-                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp F10  &trans  &bt BT_SEL 0  &mkp MB1  &mmv MOVE_UP  &mkp MB2  &bt BT_SEL 4  &kp GRAVE
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp F10  &trans  &bt BT_SEL 0  &mkp MB1  &mmv MOVE_UP  &mkp MB2  &bt BT_SEL 4  &bt BT_CLR
                 &out OUT_TOG   &kp F5  &kp F6  &kp F11  &trans  &trans        &mmv MOVE_LEFT        &mmv MOVE_DOWN        &mmv MOVE_RIGHT        &kp SINGLE_QUOTE
                 &out OUT_BLE  &out OUT_USB  &out OUT_USB   &kp F12  &trans  &bt BT_CLR    &out OUT_BLE  &out OUT_USB  &out OUT_TOG  &trans
-                &kp N0   &trans  &trans  &trans  &trans        &trans        &trans &bt BT_CLR
+                &kp N0   &trans  &trans  &trans  &trans        &trans        &trans &soft_off
             >;
         };
     };
